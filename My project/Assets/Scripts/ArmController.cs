@@ -24,6 +24,7 @@ public class ArmController : MonoBehaviour
     void Start()
     {
         // Setup slider listeners
+        SetupSlider(baseControl);
         SetupSlider(joint1Control);
         SetupSlider(joint2Control);
         SetupSlider(joint3Control);
