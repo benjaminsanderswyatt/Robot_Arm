@@ -1,0 +1,85 @@
+
+Desires:
+	6 degrees of freedom
+	a decent weight capacity (light but sturdy arm)
+	decent reach
+	smooth quiet motion
+	decent precision
+	decent accuracy
+	
+
+
+
+
+
+6 DoF arm:
+    Base rotation
+    Shoulder pitch
+    Elbow pitch
+    Wrist pitch
+    Wrist yaw
+    Wrist roll / gripper rotation
+
+
+Frame Material:
+	3D printer stuff
+	Carbon fibre rod/tube
+
+
+Motors:
+	Joints:
+		Harmonic Drive Servos
+		NEMA 17/23 Stepper Motors
+		planetary gearboxes
+		encoders
+	Wrist:
+		
+
+
+Software (i will worry about this later):
+	Inverse Kinematics using Python
+	Controlled with web GUI
+	Torque limits, Joint limiters, smooth acceleration
+
+
+
+Motor Ideas:
+
+	Base Yaw: 
+	(Requirements: high torque, good precision)
+		Motor:				NEMA 23 Stepper
+		Transmission:	Planetary Gearbox 20:1 (Good balance of torque and backlash)
+								large diameter thrust bearing (stability)
+		Encoder:			Magnetic rotary encoders
+
+	Shoulder Pitch: 
+	(Requirements: most important, load bearing joint, high torque, zero backlash, accuracy)
+		Motor:				NEMA 23 Closed-loop stepper
+		Transmission:	Harmonic Drive 1:100 or 1:50
+								thrust bearing
+		Encoder:			Integrated with closed loop driver
+
+	Elbow Pitch:
+	(Requirements: decent load, light)
+		Motor:				NEMA 17 Stepper
+		Transmission:	Planetary Gearbox 20:1
+								thrust bearing
+		Belt: 				Belt drive (Remote motor placement lowers weight distance)
+		Encoder:			AMT102/103 or magnetic encoder
+	
+	Wrist Pitch:
+	(Requirements: lower torque, high precision)
+		Motor:				NEMA 17 Stepper (compact, high precision model)
+		Transmission:	Planetary Gearbox 10:1
+		Encoder:			maybe for closed loop
+		
+	Wrist Yaw:
+	(Requirements: small, light, speed, precision)
+		Motor: 				NEMA 17 + 10:1 gearbox
+						OR	High torque digital servo
+		Transmission:	Internal / small gear
+
+	Wrist Roll / Gripper Rotation:
+	(Requirements: small, light, speed, precision)
+		Motor: 				High speed DC gearmotor or servo
+		Transmission:	Internal
